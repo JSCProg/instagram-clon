@@ -106,8 +106,9 @@ const manejarLike = (
       {/* Información */}
       <div className="contenido-publicacion">
         <p className="cantidad-likes">
-         {likesActuales.toLocaleString()} Me gusta
+         {likesActuales} Me gusta
         </p>
+
 
         <p className="descripcion-publicacion">
           <strong>{nombreUsuario}</strong> {descripcion}

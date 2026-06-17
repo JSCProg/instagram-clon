@@ -4,8 +4,6 @@
   gap: 18px;
   padding: 20px 0;
   max-width: 630px;
-  overflow-x: auto;
-  scrollbar-width: none;
 }
 
 .barra-historias::-webkit-scrollbar {
@@ -17,7 +15,7 @@
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  flex-shrink: 0;
+
 }
 
 .circulo-historia {
@@ -41,17 +39,10 @@
   transition: transform 0.2s;
 }
 
-.circulo-historia img:hover {
-  transform: scale(1.05);
-}
-
 .historia span {
   margin-top: 6px;
   width: 72px;
   font-size: 0.75rem;
   color: #262626;
   text-align: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }

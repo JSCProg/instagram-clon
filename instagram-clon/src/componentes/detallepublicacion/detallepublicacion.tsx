@@ -79,7 +79,7 @@ function DetallePublicacion({
           </div>
 
           <p className="likes-modal">
-            {publicacion.cantidadLikes.toLocaleString()} Me gusta
+            {publicacion.cantidadLikes} Me gusta
           </p>
         </div>
         
