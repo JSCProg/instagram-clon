@@ -1,0 +1,57 @@
+.barra-historias {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 0;
+  max-width: 630px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.barra-historias::-webkit-scrollbar {
+  display: none;
+}
+
+.historia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.circulo-historia {
+  padding: 3px;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    #f9ce34,
+    #ee2a7b,
+    #6228d7
+  );
+}
+
+.circulo-historia img {
+  display: block;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  transition: transform 0.2s;
+}
+
+.circulo-historia img:hover {
+  transform: scale(1.05);
+}
+
+.historia span {
+  margin-top: 6px;
+  width: 72px;
+  font-size: 0.75rem;
+  color: #262626;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

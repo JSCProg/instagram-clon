@@ -1,9 +1,10 @@
 export interface Publicacion {
   id: number;
-  imagen: string;
   nombreUsuario: string;
+  imagenPerfil: string;
+  imagenPublicacion: string;
   descripcion: string;
   cantidadLikes: number;
-  comentarios: string[];
   fecha: string;
+  comentarios: string[];
 }

@@ -1,0 +1,9 @@
+.feed {
+  margin-left: 245px; /* mismo ancho que el sidebar */
+  padding-top: 25px;
+  padding-left: 40px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}

@@ -1,0 +1,111 @@
+.publicacion {
+  width: 470px;
+  margin-top: 20px;
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 20px;
+  margin-left: 15%;
+}
+
+.cabecera-publicacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.informacion-usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.circulo-perfil {
+  padding: 2px;
+  border-radius: 50%;
+}
+
+.circulo-perfil img {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.nombre-usuario {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.boton-opciones,
+.acciones-publicacion button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.boton-opciones svg,
+.acciones-publicacion svg {
+  font-size: 1.4rem;
+}
+
+.contenedor-imagen {
+  width: 100%;
+}
+.publicacion {
+  cursor: pointer;
+}
+.imagen-publicacion {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.acciones-publicacion {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.acciones-izquierda {
+  display: flex;
+  gap: 14px;
+}
+
+.contenido-publicacion {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cantidad-likes {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.descripcion-publicacion {
+  font-size: 0.9rem;
+}
+
+.comentarios-publicacion,
+.fecha-publicacion {
+  color: #737373;
+  font-size: 0.85rem;
+}
+
+.boton-like {
+  transition: transform 0.15s ease;
+}
+
+.boton-like {
+  transition: transform 0.15s ease;
+}
+
+.boton-like:hover {
+  transform: scale(1.1);
+}
+
+.like-activo svg {
+  color: #ed4956; 
+}

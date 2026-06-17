@@ -1,5 +1,6 @@
 import "./header.css";
 import logoig from "../../assets/logoig.png";
+import fotoperfilTp7 from "../../assets/fotoperfiltp7.png";
 
 import {
   FaHome,
@@ -61,10 +62,10 @@ function Header() {
 
         <button className="item-menu">
           <img
-            className="foto-perfil-menu"
-            src="https://i.pravatar.cc/40"
-            alt="Perfil"
-          />
+          className="foto-perfil-menu"
+          src= {fotoperfilTp7}
+          alt="Perfil"
+        />
           <span>Profile</span>
         </button>
       </nav>

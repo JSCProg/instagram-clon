@@ -1,0 +1,73 @@
+.perfil-usuario {
+  width: 320px;
+  margin-top: 35px;
+  margin-left: 40px;
+  position: sticky;
+  top: 30px;
+  margin-left: 10%;
+}
+
+.usuario-actual,
+.sugerencia {
+  display: flex;
+  align-items: center;
+}
+
+.usuario-actual {
+  margin-bottom: 25px;
+}
+
+.usuario-actual img,
+.sugerencia img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
+.datos-usuario,
+.datos-sugerencia {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+  flex: 1;
+}
+
+.datos-usuario span,
+.datos-sugerencia span {
+  color: #737373;
+  font-size: 0.85rem;
+}
+
+.usuario-actual button,
+.sugerencia button,
+.encabezado-sugerencias button {
+  border: none;
+  background: none;
+  color: #0095f6;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.encabezado-sugerencias {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  color: #737373;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.sugerencia {
+  margin-bottom: 16px;
+}
+
+.footer-perfil {
+  margin-top: 30px;
+}
+
+.footer-perfil p {
+  color: #c7c7c7;
+  font-size: 0.75rem;
+  margin-bottom: 8px;
+}
