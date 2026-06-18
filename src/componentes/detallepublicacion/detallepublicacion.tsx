@@ -19,6 +19,11 @@ function DetallePublicacion({
   publicacion,
   alCerrar,
 }: PropsDetallePublicacion) {
+  console.log(
+  "DETALLE",
+  publicacion.nombreUsuario,
+  publicacion.cantidadLikes
+);
   return (
     <div className="fondo-modal" onClick={alCerrar}>
       <div

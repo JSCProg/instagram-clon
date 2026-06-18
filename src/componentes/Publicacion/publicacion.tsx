@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./publicacion.css";
 
 import {
@@ -29,26 +29,33 @@ function Publicacion({
   fecha,
   alSeleccionar,
 }: PropsPublicacion) {
-const [tieneLike, setTieneLike] = useState(false);
-const [likesActuales, setLikesActuales] = useState(cantidadLikes);
-const manejarLike = (
-  evento: React.MouseEvent<HTMLButtonElement>
-) => {
-  // Evita que se abra la publicacion al hacer click en el corazón, esto lo hicimos con ia
-  evento.stopPropagation();
-  if (tieneLike) {
-    setLikesActuales(likesActuales - 1);
-  } else {
-    setLikesActuales(likesActuales + 1);
-  }
+  const [tieneLike, setTieneLike] = useState(false);
+  const [likesActuales, setLikesActuales] =
+    useState(cantidadLikes);
 
-  setTieneLike(!tieneLike);
-};
+  useEffect(() => {
+    setLikesActuales(cantidadLikes);
+  }, [cantidadLikes]);
+
+  const manejarLike = (
+    evento: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    evento.stopPropagation();
+
+    if (tieneLike) {
+      setLikesActuales(likesActuales - 1);
+    } else {
+      setLikesActuales(likesActuales + 1);
+    }
+
+    setTieneLike(!tieneLike);
+  };
 
   return (
     <article
-    className="publicacion"
-  onClick={alSeleccionar}>
+      className="publicacion"
+      onClick={alSeleccionar}
+    >
       <div className="cabecera-publicacion">
         <div className="informacion-usuario">
           <div className="circulo-perfil">
@@ -68,7 +75,6 @@ const manejarLike = (
         </button>
       </div>
 
-      {/* esta es la imagen principal */}
       <div className="contenedor-imagen">
         <img
           src={imagenPublicacion}
@@ -77,17 +83,16 @@ const manejarLike = (
         />
       </div>
 
-      {/* Botones de interacción */}
       <div className="acciones-publicacion">
         <div className="acciones-izquierda">
           <button
-  className={`boton-like ${
-    tieneLike ? "like-activo" : ""
-  }`}
-  onClick={manejarLike}
->
-  <FaRegHeart />
-</button>
+            className={`boton-like ${
+              tieneLike ? "like-activo" : ""
+            }`}
+            onClick={manejarLike}
+          >
+            <FaRegHeart />
+          </button>
 
           <button>
             <FaRegComment />
@@ -103,15 +108,14 @@ const manejarLike = (
         </button>
       </div>
 
-      {/* Información */}
       <div className="contenido-publicacion">
         <p className="cantidad-likes">
-         {likesActuales} Me gusta
+          {likesActuales} Me gusta
         </p>
 
-
         <p className="descripcion-publicacion">
-          <strong>{nombreUsuario}</strong> {descripcion}
+          <strong>{nombreUsuario}</strong>{" "}
+          {descripcion}
         </p>
 
         <p className="comentarios-publicacion">

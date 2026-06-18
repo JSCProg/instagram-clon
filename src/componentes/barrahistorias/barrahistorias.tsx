@@ -4,27 +4,27 @@ function BarraHistorias() {
   const historias = [
     {
       id: 1,
-      nombreUsuario: "gatito_01",
+      nombreUsuario: "javier0222",
       imagen: "https://i.pravatar.cc/150?img=1",
     },
     {
       id: 2,
-      nombreUsuario: "gatito_02",
+      nombreUsuario: "raul.perez",
       imagen: "https://i.pravatar.cc/150?img=2",
     },
     {
       id: 3,
-      nombreUsuario: "gatito_03",
+      nombreUsuario: "el_ingeniero12",
       imagen: "https://i.pravatar.cc/150?img=3",
     },
     {
       id: 4,
-      nombreUsuario: "gatito_04",
+      nombreUsuario: "aguanteboca",
       imagen: "https://i.pravatar.cc/150?img=4",
     },
     {
       id: 5,
-      nombreUsuario: "gatito_05",
+      nombreUsuario: "riber.26611",
       imagen: "https://i.pravatar.cc/150?img=5",
     },
   ];
