@@ -1,0 +1,48 @@
+.barra-historias {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 20px 0;
+  max-width: 630px;
+}
+
+.barra-historias::-webkit-scrollbar {
+  display: none;
+}
+
+.historia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+}
+
+.circulo-historia {
+  padding: 3px;
+  border-radius: 50%;
+  background: linear-gradient(
+    45deg,
+    #f9ce34,
+    #ee2a7b,
+    #6228d7
+  );
+}
+
+.circulo-historia img {
+  display: block;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  transition: transform 0.2s;
+}
+
+.historia span {
+  margin-top: 6px;
+  width: 72px;
+  font-size: 0.75rem;
+  color: #262626;
+  text-align: center;
+}
