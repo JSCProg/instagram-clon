@@ -1,8 +1,11 @@
 import axios from "axios";
 import type { Publicacion } from "../interfaces/publicacion";
 
-const URL_API = "https://api.thecatapi.com/v1/images/search?limit=10";
+// url de laa api que usamos para las imagenes aleatorias de gatos
+const URL_API =
+  "https://api.thecatapi.com/v1/images/search?limit=10";
 
+// lista de comentarios posibles para las publicaciones
 const comentariosPosibles = [
   "¡Qué lindo gato! 😻",
   "Necesito adoptarlo ❤️",
@@ -18,6 +21,7 @@ const comentariosPosibles = [
   "Demasiado adorable 🥰",
 ];
 
+// lista de descripciones posibles
 const descripcionesPosibles = [
   "Un gatito disfrutando su día 🐱",
   "Modo siesta activado 😴",
@@ -33,6 +37,7 @@ const descripcionesPosibles = [
   "Con cara de que no rompió nada... 😇",
 ];
 
+// lista de nnombres de usuarios simulados
 const nombresUsuariosPosibles = [
   "michi_lovers",
   "gatito_feliz",
@@ -56,16 +61,18 @@ const nombresUsuariosPosibles = [
   "cafe_con_gatos"
 ];
 
+// genera 3 comentarios aleatorios para cada publicacion
 function generarComentariosAleatorios(): string[] {
   const copia = [...comentariosPosibles];
 
-  // Mezcla el array
+  // mezcla el array aleatoriamente
   copia.sort(() => Math.random() - 0.5);
 
-  // Devuelve los primeros 3
+  // Devuelve los primeros tres comentarios
   return copia.slice(0, 3);
 }
 
+// devuelve una descripcion aleatoria
 function generarDescripcionAleatoria(): string {
   const indiceAleatorio = Math.floor(
     Math.random() * descripcionesPosibles.length
@@ -74,6 +81,7 @@ function generarDescripcionAleatoria(): string {
   return descripcionesPosibles[indiceAleatorio];
 }
 
+// devuelve un nombre de usuario aleatorio
 function generarUsuarioAleatorio(): string {
   const indiceAleatorio = Math.floor(
     Math.random() * nombresUsuariosPosibles.length
@@ -82,17 +90,42 @@ function generarUsuarioAleatorio(): string {
   return nombresUsuariosPosibles[indiceAleatorio];
 }
 
+// funcion principal que obtiene las imagenes desde la api
+// y transforma los datos para adaptarlos al modelo publicacion
 export const obtenerGatos = async (): Promise<Publicacion[]> => {
+
+  // Realiza la petición HTTP a la API
   const respuesta = await axios.get(URL_API);
 
-  return respuesta.data.map((gato: any, indice: number) => ({
-    id: indice + 1,
-    nombreUsuario: generarUsuarioAleatorio(),
-    imagenPerfil: `https://i.pravatar.cc/100?img=${indice + 10}`,
-    imagenPublicacion: gato.url,
-    descripcion: generarDescripcionAleatoria(),
-    cantidadLikes: Math.floor(Math.random() * 10000),
-    fecha: "Hace 2 horas",
-    comentarios: generarComentariosAleatorios(),
-  }));
+  // Recorre cada imagen obtenida y crea un objeto Publicacion
+  return respuesta.data.map(
+    (gato: any, indice: number) => ({
+
+      // Identificador único
+      id: indice + 1,
+
+      // Nombre de usuario generado aleatoriamente
+      nombreUsuario: generarUsuarioAleatorio(),
+
+      // Imagen de perfil simulada
+      imagenPerfil: `https://i.pravatar.cc/100?img=${indice + 10}`,
+
+      // Imagen obtenida desde la API de gatos
+      imagenPublicacion: gato.url,
+
+      // Descripción aleatoria
+      descripcion: generarDescripcionAleatoria(),
+
+      // Cantidad de likes aleatoria
+      cantidadLikes: Math.floor(
+        Math.random() * 10000
+      ),
+
+      // Fecha simulada
+      fecha: "Hace 2 horas",
+
+      // Comentarios aleatorios
+      comentarios: generarComentariosAleatorios(),
+    })
+  );
 };
