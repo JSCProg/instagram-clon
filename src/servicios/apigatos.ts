@@ -101,30 +101,29 @@ export const obtenerGatos = async (): Promise<Publicacion[]> => {
   return respuesta.data.map(
     (gato: any, indice: number) => ({
 
-      // Identificador único
+      
       id: indice + 1,
 
-      // Nombre de usuario generado aleatoriamente
+      // nombre de usuario generado aleatoriamente
       nombreUsuario: generarUsuarioAleatorio(),
 
-      // Imagen de perfil simulada
       imagenPerfil: `https://i.pravatar.cc/100?img=${indice + 10}`,
 
-      // Imagen obtenida desde la API de gatos
+      // imagen obtenida desde la API de gatos
       imagenPublicacion: gato.url,
 
-      // Descripción aleatoria
+      // descripción aleatoria
       descripcion: generarDescripcionAleatoria(),
 
-      // Cantidad de likes aleatoria
+      // cantidad de likes aleatoria
       cantidadLikes: Math.floor(
         Math.random() * 10000
       ),
 
-      // Fecha simulada
+      // fecha simulada
       fecha: "Hace 2 horas",
 
-      // Comentarios aleatorios
+      // comentarios aleatorios
       comentarios: generarComentariosAleatorios(),
     })
   );

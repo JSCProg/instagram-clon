@@ -11,7 +11,7 @@ import {
 import { FiSend } from "react-icons/fi";
 import { BsThreeDots } from "react-icons/bs";
 
-// Interface que define las props que debe recibir el componente
+// Iinterface que define las props que debe recibir el componente
 interface PropsPublicacion {
   nombreUsuario: string;
   imagenPerfil: string;
@@ -32,52 +32,52 @@ function Publicacion({
   alSeleccionar,
 }: PropsPublicacion) {
 
-  // Guarda si el usuario dio like o no a la publicación
+  // guarda si el usuario dio like o no a la publicación
   const [tieneLike, setTieneLike] = useState(false);
 
-  // Guarda la cantidad de likes mostrada en pantalla
+  // guarda la cantidad de likes mostrada en pantalla
   const [likesActuales, setLikesActuales] =
     useState(cantidadLikes);
 
-  // Actualiza los likes mostrados cuando cambia el valor recibido por props
+  // actualiza los likes mostrados cuando cambia el valor recibido por props
   useEffect(() => {
     setLikesActuales(cantidadLikes);
   }, [cantidadLikes]);
 
-  // Maneja el evento de dar o quitar like
+  // maneja el evento de dar o quitar like
   const manejarLike = (
     evento: React.MouseEvent<HTMLButtonElement>
   ) => {
 
-    // Evita que se ejecute también el click de la publicación
+    // evita que se ejecute también el click de la publicación
     // que abre el modal de detalle
     evento.stopPropagation();
 
-    // Si ya tenía like, se resta uno.
-    // Si no tenía like, se suma uno.
+    // si ya tenía like, se resta uno.
+    // si no tenía like, se suma uno.
     if (tieneLike) {
       setLikesActuales(likesActuales - 1);
     } else {
       setLikesActuales(likesActuales + 1);
     }
 
-    // Cambia el estado del like
+    // cambia el estado del like
     setTieneLike(!tieneLike);
   };
 
   return (
 
-    // Al hacer click sobre la publicación se abre el modal
+    // al hacer click sobre la publicación se abre el modal
     <article
       className="publicacion"
       onClick={alSeleccionar}
     >
 
-      {/* Cabecera de la publicación */}
+      {/* cabecera de la publicación */}
       <div className="cabecera-publicacion">
         <div className="informacion-usuario">
 
-          {/* Imagen de perfil del usuario */}
+          {/* imagen de perfil del usuario */}
           <div className="circulo-perfil">
             <img
               src={imagenPerfil}
@@ -85,19 +85,19 @@ function Publicacion({
             />
           </div>
 
-          {/* Nombre del usuario */}
+          {/* nombre del usuario */}
           <span className="nombre-usuario">
             {nombreUsuario}
           </span>
         </div>
 
-        {/* Botón de opciones */}
+        {/* botón de opciones */}
         <button className="boton-opciones">
           <BsThreeDots />
         </button>
       </div>
 
-      {/* Imagen principal de la publicación */}
+      {/* imagen principal de la publicación */}
       <div className="contenedor-imagen">
         <img
           src={imagenPublicacion}
@@ -106,11 +106,11 @@ function Publicacion({
         />
       </div>
 
-      {/* Botones de interacción */}
+      {/* botones de interacción */}
       <div className="acciones-publicacion">
         <div className="acciones-izquierda">
 
-          {/* Botón de like */}
+          {/* botón de like */}
           <button
             className={`boton-like ${
               tieneLike ? "like-activo" : ""
@@ -120,7 +120,7 @@ function Publicacion({
             <FaRegHeart />
           </button>
 
-          {/* Botón de comentarios */}
+          {/* botón de comentarios */}
           <button>
             <FaRegComment />
           </button>

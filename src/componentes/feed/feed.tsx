@@ -8,21 +8,21 @@ import Publicacion from "../Publicacion/publicacion";
 import Cargando from "../cargando/cargando";
 import DetallePublicacion from "../detallepublicacion/detallepublicacion";
 
-// Interface utilizada para tipar las publicaciones
+// interface utilizada para tipar las publicaciones
 import type { Publicacion as TipoPublicacion } from "../../interfaces/publicacion";
 
-// Función que obtiene los datos desde la API de gatos
+// funcion que obtiene los datos desde la API de gatos
 import { obtenerGatos } from "../../servicios/apigatos";
 
 function Feed() {
-  // Estado donde se almacenan todas las publicaciones obtenidas de la API
+  // estado donde se almasenan todas las publicaciones obtenidas de la API
   const [publicaciones, setPublicaciones] = useState<TipoPublicacion[]>([]);
 
-  // Estado que guarda la publicación seleccionada para mostrarla en el modal
+  // estado que guarda la publicación seleccionada para mostrarla en el modal
   const [publicacionSeleccionada, setPublicacionSeleccionada] =
     useState<TipoPublicacion | null>(null);
 
-  // Se ejecuta una sola vez cuando se carga el componente
+  // se ejecuta una sola vez cuando se carga el componente
   // y obtiene las publicaciones desde la API
   useEffect(() => {
     const cargarPublicaciones = async () => {
@@ -36,15 +36,15 @@ function Feed() {
   return (
     <main className="feed">
 
-      {/* Barra superior de historias */}
+      {/* barra superior de historias */}
       <BarraHistorias />
 
-      {/* Mientras las publicaciones se cargan se muestra un indicador de carga */}
+      {/* mientras las publicaciones se cargan se muestra un indicador de carga */}
       {publicaciones.length === 0 ? (
         <Cargando />
       ) : (
-        // Recorre el arreglo de publicaciones y genera un componente
-        // Publicacion para cada elemento recibido desde la API
+        // recorre el arreglo de publicaciones y genera un componente
+        // publicacion para cada elemento recibido desde la API
         publicaciones.map((publicacion) => (
           <Publicacion
             key={publicacion.id}
@@ -55,7 +55,7 @@ function Feed() {
             cantidadLikes={publicacion.cantidadLikes}
             fecha={publicacion.fecha}
 
-            // Al hacer click sobre una publicación se guarda en el estado
+            // al hacer click sobre una publicación se guarda en el estado
             // para mostrarla en el modal de detalle
             alSeleccionar={() =>
               setPublicacionSeleccionada(publicacion)
@@ -64,12 +64,12 @@ function Feed() {
         ))
       )}
 
-      {/* Si existe una publicación seleccionada se muestra el modal */}
+      {/* si existe una publicación seleccionada se muestra el modal */}
       {publicacionSeleccionada && (
         <DetallePublicacion
           publicacion={publicacionSeleccionada}
 
-          // Al cerrar el modal se vuelve a colocar null en el estado
+          // al cerrar el modal se vuelve a colocar null en el estado
           alCerrar={() => setPublicacionSeleccionada(null)}
         />
       )}
